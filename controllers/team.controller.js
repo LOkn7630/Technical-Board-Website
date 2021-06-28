@@ -60,10 +60,10 @@ exports.postMember = async (req, res) => {
 exports.findTeam = async (req, res) => {
     try {
       const val = req.body.dropdown;
-      console.log(val);
+      
       var members = await Team.find({
         $and: [
-          { category: { $regex: val, $options: "i" } },
+          { year: { $regex: val, $options: "i" } },
         ],
       }).sort("priority_number");
       var tyear = await Year.find({});

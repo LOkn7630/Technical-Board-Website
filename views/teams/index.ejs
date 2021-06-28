@@ -4,15 +4,14 @@
     <div class="mt-6">
         <a class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" href="/tech/admin/team/add">Add
             Members</a>
-        <form style="float: right;" action="/hab/admin/form/find/" method="POST" enctype="multipart/form-data">
+        <form style="float: right;" action="/tech/admin/team/find/" method="POST" enctype="multipart/form-data">
             <select class="w-50 h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" name = "dropdown">
                 <option value = "" selected>-Tenure-</option>
                 <% tyear.forEach((years) => { %>
                     <option value= "<%= years.year %>"> <%= years.year %> </option>
                 <% }) %>
             </select>
-            <!-- <input type="text" name="mySearch1" placeholder="Search ... ">
-            <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit"> Submit </button> -->
+            <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit"> Submit </button> 
         </form>
     </div>
 
