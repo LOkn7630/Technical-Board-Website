@@ -29,7 +29,7 @@ mongoose
   .then(() => console.log("Successful DB connection"))
   .catch((err) => console.log(err.message));
 
-
+const homeRoutes = require("./routes/home.routes");
 const adminRoutes = require("./routes/admin.routes");
 const announcementRoutes = require("./routes/announcement.routes");
 const noticeRoutes = require("./routes/notice.routes");
@@ -87,6 +87,7 @@ app.use((req, res, next) => {
 });
 
 app.set("view engine", "ejs");
+app.use("/tech", homeRoutes);
 app.use("/tech/admin", adminRoutes);
 app.use("/tech/admin/announcement", announcementRoutes);
 app.use("/tech/admin/notice", noticeRoutes)

@@ -36,11 +36,11 @@ exports.postMember = async (req, res) => {
                 .json({status:"Failed", message:"No File Provided"});
         }
         // const { year } = req.params;
-        const {name, email, contactNo, post, priority_number} = req.body;
+        const {name, email, contactNo, post, priority_number, linkedin} = req.body;
         let {year} = req.body;
         const image = req.file.filename;
-        const newTeamData = new Team({name, image, email, contactNo, post, year, priority_number});
-        const MemberData = await newTeamData.save();
+        const newTeamData = new Team({name, image, email, contactNo, post, year, priority_number, linkedin});
+        await newTeamData.save();
         const tyear = await Year.find({ year: year });
         if (tyear.length == 0) {
             const newYear = new Year({ year: year });
@@ -86,14 +86,14 @@ exports.editMember = async (req, res) => {
     try{
         const {id} = req.params;
         const TeamData = await Team.findById(id);
-        const {name, email, contactNo, post, priority_number} = req.body;
+        const {name, email, contactNo, post, priority_number, linkedin} = req.body;
         let {year} = req.body;
         let image;
-        let data = {name, email, contactNo, post, year , priority_number};
+        let data = {name, email, contactNo, post, year , priority_number,linkedin};
         if(req.file){
             fs.unlinkSync(`uploads/team/${TeamData.image}`);
             image = req.file.filename;
-            data =  {name, image, email, contactNo, post, year , priority_number};
+            data =  {name, image, email, contactNo, post, year , priority_number, linkedin};
         }
         
         await Team.findByIdAndUpdate(id, data);

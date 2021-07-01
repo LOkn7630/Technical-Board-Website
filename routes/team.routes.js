@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.get("/",teamController.getTeamMembers);
+router.get("/",isLoggedIn, isAdmin, teamController.getTeamMembers);
 router.get(
     "/add",
     isLoggedIn,

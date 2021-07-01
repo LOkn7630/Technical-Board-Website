@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta property="og:title" content="Technical Board">
+    <meta property="og:description" content="">
+    <!-- <meta property="og:image" content="/tech//images/headers/logo2.svg"> -->
+    <!-- <meta property="og:url" content="http://euro-travel-example.com/index.htm"> -->
+    <link href="https://fonts.googleapis.com/css?family=Mulish" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/tech/css/tailwind.min.css" />
+    <link rel="stylesheet" href="/tech/css/styles.css" />
+    <title>Technical Board - IIT Guwahati</title>
+    <!-- <link rel="icon" href="/tech/images/headers/logo2.svg" type="image/icon type" /> -->
+    <style>
+        .maxh {
+            max-height: 550px;
+        }
+        .maxnotice {
+            max-height: 440px;
+        }
+        @media only screen and (max-width: 420px) {
+            .maxh {
+                max-height: 930px;
+            }
+        }
+        .tab {
+            display: inline-block;
+        }
+        .tablink {
+            position: relative;
+            color: black;
+        }
+
+        .tabStyle::after {
+            content: "";
+            height: 2px;
+            width: 50%;
+            background-color: #e54f6d;
+            position: absolute;
+            bottom: 0em;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        .tabs::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+        <%- include("./partials/nav.ejs") %>
+        <%- include("./partials/home.ejs") %>
+        <%- include("./partials/event.ejs") %>
+        <%- include("./partials/team.ejs") %>
+        <%- include("./partials/footer.ejs") %>
+
+
+        <!-- Compiled and minified Materialize JS -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
+        <script src="/tech/js/nav.js"></script>
+        <script src="/tech/js/all.min.js"></script>
+        <script src="/tech/js/announce.js"></script>
+              
+                                            
+                                            
+</body>
+
+</html>

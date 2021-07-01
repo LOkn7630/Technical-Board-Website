@@ -15,7 +15,6 @@ exports.getOneNotice = async (req, res) => {
     const id = req.params.notice_id;
     
     const notice = await Notice.findById(id);
-    console.log(req.params.notice_id)
     const filePath = "uploads/notice/" + notice.path;
     
     fs.readFile(filePath, (err, data) => {

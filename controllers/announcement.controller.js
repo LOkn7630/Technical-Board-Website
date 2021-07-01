@@ -21,7 +21,8 @@ exports.addAnnouncementForm = (req, res) => {
 exports.postAnnouncement = async (req, res) => {
   // console.log(req.file);
   try {
-    const { title, description, club, link } = req.body;
+    const { title, description, club, link,imp} = req.body;
+    const important = imp ? true : false;
     const pic = req.file.filename;
     var newAnnouncement = new Announcement({
       title,
@@ -29,9 +30,10 @@ exports.postAnnouncement = async (req, res) => {
       club,
       link,
       pic,
+      important,
     });
     await newAnnouncement.save();
-    console.log(newAnnouncement)
+    // console.log(newAnnouncement)
     req.flash("success", "Successfully added new announcement!");
     return res.redirect("/tech/admin/announcement");
   } catch (error) {
@@ -51,14 +53,15 @@ exports.getEditForm = async (req, res) => {
 exports.editAnnouncement = async (req, res) => {
   try {
     const {id} = req.params;
-    const { title, description, club, link} = req.body;
+    const { title, description, club, link,imp} = req.body;
+    const important = imp ? true : false;
     var pic;
     const announcement = await Announcement.findById(id);
-    const data = {  title, description, club, link};
+    const data = {  title, description, club, link, important};
     if(req.file){
       fs.unlinkSync(`uploads/announcement/${announcement.pic}`);
       pic = req.file.filename;
-      data =  {title, description, club, link,pic};
+      data =  {title, description, club, link,pic, important};
   }
     await Announcement.findByIdAndUpdate(req.params.id, data);
 
