@@ -136,51 +136,55 @@
                     Our <span class="text-txt-3">Alumni</span>
                 </div>
 
+                <% var selectedYear = tyear[1].year %>
+
                 <div class="mx-auto md:ml-12 bg-txt-1 dark:bg-txt-6 w-75p  md:w-101 md:mr-0 px-1  my-3 py-4 flex flex-row justify-evenly items-center text-xs md:text-sm rounded-md">
                     <% tyear.forEach(year=>{ %>
                         <% if(year.year != tyear[0].year) { %>
-                        <button
-                            class="text-white border-0 py-1  px-3 md:px-3 focus:outline-none hover:bg-black rounded text-base mt-4 md:mt-0"
-                            onClick="myFunction2('<%=year.year%>')">
-                            <%=year.year%>
-                        </button>
-                    <% } %>
+                            <button
+                                class="text-white border-0 py-1  px-3 md:px-3 focus:outline-none hover:bg-black rounded text-base mt-4 md:mt-0 year-button"
+                                >
+                                    <%=year.year%>
+                            </button>
+                        <% } %>
                     <% }) %>
                 </div>
 
                     <!-- cards begin -->
-                <div class="mx-auto max-w-3/4  md:max-w-full container my-2 px-4 md:px-12 ">
+                <div class="mx-auto max-w-3/4  md:max-w-full container my-2 px-4 md:px-12">
                     <div class="flex flex-wrap -mx-1 lg:-mx-4">
                         <% teams.forEach((team, i)=>{ %>
-                            <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-                                <article class="overflow-hidden rounded-lg shadow-lg">
-                                    <img alt="image" class="block h-72 w-72 self-center p-3" src="uploads/team/<%=team.image%>">
-                                    <header class="leading-tight px-2 md:px-4 text-txt-1 text-left">
-                                        <h1 class="text-xl font-bold ">
-                                            <%=team.name%> 
-                                        </h1>
-                                        <p class=" text-base font-semibold">
-                                            <%=team.post%>
-                                        </p>
-                                        <p class=" text-base font-semibold hidden">
-                                            <%=team.year%>
-                                        </p>
-                                    </header>
+                            
+                                <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 alumni-card">
+                                    <article class="overflow-hidden rounded-lg shadow-lg">
+                                        <img alt="image" class="block h-72 w-72 self-center p-3" src="uploads/team/<%=team.image%>">
+                                        <header class="leading-tight px-2 md:px-4 text-txt-1 text-left">
+                                            <h1 class="text-xl font-bold ">
+                                                <%=team.name%> 
+                                            </h1>
+                                            <p class=" text-base font-semibold">
+                                                <%=team.post%>
+                                            </p>
+                                            <p class=" text-base font-semibold hidden">
+                                                <%=team.year%>
+                                            </p>
+                                        </header>
+    
+                                        <footer class="flex items-center justify-end leading-none p-2 md:p-4">
+                                            <a class="flex items-center no-underline hover:underline px-1" href="#">
+                                                <img src="/tech/images/peop_img/linkedin.svg" alt="" class="w-6 h-6">
+                                            </a>
+                                            <a class="flex items-center no-underline hover:underline px-1" href="#">
+                                                <img src="/tech/images/peop_img/email.svg" alt="" class="w-6 h-6">
+                                            </a>
+                                            <a class="flex items-center no-underline hover:underline pl-1" href="#">
+                                                <img src="/tech/images/peop_img/phone.svg" alt="" class="w-6 h-6">
+                                            </a>
+                                        </footer>
+    
+                                    </article>
+                                </div>
 
-                                    <footer class="flex items-center justify-end leading-none p-2 md:p-4">
-                                        <a class="flex items-center no-underline hover:underline px-1" href="#">
-                                            <img src="/tech/images/peop_img/linkedin.svg" alt="" class="w-6 h-6">
-                                        </a>
-                                        <a class="flex items-center no-underline hover:underline px-1" href="#">
-                                            <img src="/tech/images/peop_img/email.svg" alt="" class="w-6 h-6">
-                                        </a>
-                                        <a class="flex items-center no-underline hover:underline pl-1" href="#">
-                                            <img src="/tech/images/peop_img/phone.svg" alt="" class="w-6 h-6">
-                                        </a>
-                                    </footer>
-
-                                </article>
-                            </div>
                         <% }) %>
                     </div>
                 </div>
