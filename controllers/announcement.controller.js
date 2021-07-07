@@ -55,9 +55,9 @@ exports.editAnnouncement = async (req, res) => {
     const {id} = req.params;
     const { title, description, club, link,imp} = req.body;
     const important = imp ? true : false;
-    var pic;
+    let pic;
     const announcement = await Announcement.findById(id);
-    const data = {  title, description, club, link, important};
+    let data = {  title, description, club, link, important};
     if(req.file){
       fs.unlinkSync(`uploads/announcement/${announcement.pic}`);
       pic = req.file.filename;

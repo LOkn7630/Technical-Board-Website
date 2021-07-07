@@ -7,7 +7,7 @@ const TeamSchema = new mongoose.Schema({
     linkedin: {type : String, required : true},
     contactNo : {type: String, required : true},
     post : {type : String, required : true},
-    year : {type : String, required : true},
+    year : {type : String, required : true, maxLength: 7},
     priority_number : {type : String, required : true}
 });
 

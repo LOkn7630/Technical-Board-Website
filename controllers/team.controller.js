@@ -4,10 +4,7 @@ const fs = require("fs");
 
 exports.getTeamMembers = async (req, res) => {
     try{
-        // const { year } = req.params;
-        // const TeamMembersData = await Team.find({year : year}).sort("priority_number");
-        // return res.status(200).json({status:"Success", data: TeamMembersData});
-        const members = await Team.find({}).sort("year");
+        const members = await Team.find({}).sort("-year").sort("priority_number");
 
         const tyear = await Year.find({});
         return res.render("teams/index", { members, tyear });
@@ -89,15 +86,16 @@ exports.editMember = async (req, res) => {
         const {name, email, contactNo, post, priority_number, linkedin} = req.body;
         let {year} = req.body;
         let image;
-        let data = {name, email, contactNo, post, year , priority_number,linkedin};
+        let data = {name, email, contactNo, post, year, priority_number, linkedin};
         if(req.file){
             fs.unlinkSync(`uploads/team/${TeamData.image}`);
             image = req.file.filename;
             data =  {name, image, email, contactNo, post, year , priority_number, linkedin};
         }
-        
-        await Team.findByIdAndUpdate(id, data);
+        // console.log(data);
 
+        await Team.findByIdAndUpdate(id, data);
+        
         const tyear = await Year.find({ year: year });
         if (tyear.length == 0) {
             const newYear = new Year({ year: year });

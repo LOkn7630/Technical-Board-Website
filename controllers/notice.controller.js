@@ -38,12 +38,14 @@ exports.addNoticeForm = (req, res) => {
 exports.postNotice = async (req, res) => {
   // console.log(req.file);
   try {
-    const { title, description, link } = req.body;
+    const { title, description, link,imp } = req.body;
+    const important = imp ? true : false;
     const path = req.file ? req.file.filename : link;
     var newNotice = new Notice({
       title,
       description,
       path,
+      important,
     });
     await newNotice.save();
     // console.log(newNotice)
@@ -68,8 +70,8 @@ exports.editNotice = async (req, res) => {
     const {id} = req.params;
     const notice = await Notice.findById(id);
 
-    const { title, description, link} = req.body;
-    // const path = req.file ? req.file.filename : link;
+    const { title, description, link,imp} = req.body;
+    const important = imp ? true : false;
     let data;
 
     if(req.file){
@@ -78,9 +80,9 @@ exports.editNotice = async (req, res) => {
 
     const path = req.file ? req.file.filename : link;
     if (!req.file && !link) {
-      data = { title, description};
+      data = { title, description,important};
     } else {
-      data = { title, description, path};
+      data = { title, description,important, path};
     }
     await Notice.findByIdAndUpdate(req.params.id, data);
 
