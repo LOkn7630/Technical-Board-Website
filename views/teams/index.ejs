@@ -49,11 +49,14 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-gray-700" id="myMenu">
 
-                    <% members.forEach((member, i)=>{ %>
-                        <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <% members.forEach((member, i)=>{ if(i%2){ %>
+                        <tr class="bg-gray-200">
+                            <%}else{%>
+                                <tr>
+                            <%}%>
+                            <td class="text-left py-3 px-4">
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0 w-10 h-10">
                                         <img class="w-full h-full "
@@ -67,57 +70,36 @@
                                 </div>
                             </td>
 
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-
-                                    <%= member.post %>
-
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-
-                                    <%= member.email %>
-
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-
-                                    <%= member.linkedin %>
-
-                                </p>
+                            <td class="text-left py-3 px-4">
+                                <%= member.post %>
                             </td>
 
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-
-                                    <%= member.contactNo %>
-
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-
-                                    <%= member.year %>
-
-                                </p>
+                            <td class="text-left py-3 px-4">
+                                <%= member.email %>
                             </td>
 
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-
-                                    <%= member.priority_number %>
-
-                                </p>
+                            <td class="text-left py-3 px-4">
+                                <%= member.linkedin %>
                             </td>
 
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <td class="text-left py-3 px-4">
+                                <%= member.contactNo %>
+                            </td>
+
+                            <td class="text-left py-3 px-4">
+                                <%= member.year %>
+                            </td>
+
+                            <td class="text-left py-3 px-4">
+                                <%= member.priority_number %>
+                            </td>
+
+                            <td class="text-left py-3 px-4">
                                 <a class="hover:text-blue-500"
                                     href="/tech/admin/team/<%=member.id%>">Edit</a>
                             </td>
 
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <td class="text-left py-3 px-4">
                                 <form class="mx-2" action="/tech/admin/team/<%=member.id%>?_method=DELETE"
                                     method="POST"><button class="hover:text-red-500">Delete</button></form>
                             </td>
