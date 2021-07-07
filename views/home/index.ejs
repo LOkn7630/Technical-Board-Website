@@ -149,7 +149,51 @@
                     console.log(a2)
                 }
                 
+
             }
+
+            //Get current selected Tenure
+            var tenureButton = document.querySelectorAll('.year-button');
+            var selectedTenure = tenureButton[0].innerText;
+            var newstr = "";
+            for( var i = 0; i < selectedTenure.length; i++ ) 
+                if( !(selectedTenure[i] == '\n' || selectedTenure[i] == '\r') )
+                    newstr += selectedTenure[i];
+            selectedTenure = newstr.split(" ").join("");
+
+            var alumniCards = document.querySelectorAll('.alumni-card');
+
+            alumniCards.forEach(card => {
+                var text = card.children[0].children[1].children[2].innerText.split(" ").join("").split("\n").join("");
+                if(text == selectedTenure){
+                    if(card.classList.contains('hidden')){
+                        card.classList.remove('hidden');
+                    }
+                } else {
+                    if(!card.classList.contains('hidden')) {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+
+            tenureButton.forEach(button => {
+                button.addEventListener('click', () => {
+                    var buttonText = button.innerText.split(" ").join("").split("\n").join("");
+                    selectedTenure = buttonText;
+                    alumniCards.forEach(card => {
+                        var text = card.children[0].children[1].children[2].innerText.split(" ").join("").split("\n").join("");
+                        if(text == selectedTenure){
+                            if(card.classList.contains('hidden')){
+                                card.classList.remove('hidden');
+                            }
+                        } else {
+                            if(!card.classList.contains('hidden')) {
+                                card.classList.add('hidden');
+                            }
+                        }
+                    });
+                });
+            });
         </script>
          <script>
             const tabs = document.querySelectorAll(".tabs");
