@@ -135,23 +135,6 @@
                 }
             }
 
-            function myFunction2(cat) {
-                var temp, i ,a2;
-                temp = document.getElementsByClassName("team");
-                for (i = 0; i < temp.length; i++) {
-                    a2 = temp[i].getElementsByTagName("p")[1].innerHTML.trim();
-                    // if(a2==cat){
-                    //     const info = document.getElementById("tname");
-                    //     if(info.classList.contains("hidden")){
-                    //         info.classList.remove("hidden");
-                    //     }
-                    // }
-                    console.log(a2)
-                }
-                
-
-            }
-
             //Get current selected Tenure
             var tenureButton = document.querySelectorAll('.year-button');
             var selectedTenure = tenureButton[0].innerText;

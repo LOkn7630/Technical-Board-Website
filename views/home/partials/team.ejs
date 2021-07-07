@@ -16,7 +16,7 @@
                 </a>
                </div>
             </div>
-            <div class="col-start-1 col-span-9 md:col-start-2 md:col-span-8 ml-0 md:ml-8 mb-28">
+            <div class="col-start-1 col-span-9 md:col-start-2 md:col-span-8 ml-0 md:ml-8 md:mb-28">
                 <div class="">
                     <div class="text-center md:text-left py-4 md:py-32 text-2xl md:text-3xl lg:text-4xl text-txt-1 dark:text-txt-2 font-body1 font-semibold" >
                         From the Chairman's <span class="text-txt-3">desk</span> 
@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="mt-6 md:-mt-20 ">
-                        <div class="text-txt-1 dark:text-txt-2 text-sm md:text-base lg:text-lg font-medium mx-16 md:mr-32 md:ml-4 tracking-wider text-left md:text-justify">
+                        <div class="text-txt-1 dark:text-txt-2 text-sm md:text-base lg:text-lg font-medium mx-1 md:mr-32 md:ml-4 tracking-wider text-left md:text-justify">
                             With the motto of promoting technology, creativity & innovation, the Technical Board understands 
                             and believes that this fast changing and evolving era is the perfect time to live in and step-up 
                             to shape our future by looking at the world as our playground!<br><br>Many students have that creative
@@ -57,7 +57,7 @@
     </div>
     
     <div id="teams" class="dark:bg-txt-6 dark:bg-opacity-95" >
-        <div class=" px-16 py-12 md:p-0 grid grid-cols-8">
+        <div class=" px-8 py-12 md:p-0 grid grid-cols-8">
             <!-- sidenav -->
             <div class='md:py-32 lg:ml-12 invisible md:visible max-h-0 md:max-h-560'>
                 <div class="md:border-r-2 md:border-txt-3 md:border-opacity-50">
@@ -101,10 +101,10 @@
                                     <a class="flex items-center no-underline hover:underline px-1" href="<%= team.linkedin %>" target="_blank">
                                         <img src="/tech/images/peop_img/linkedin.svg" alt="" class="w-6 h-6">
                                     </a>
-                                    <a class="flex items-center no-underline hover:underline px-1" href="#">
+                                    <a class="flex items-center no-underline hover:underline px-1" href="mailto:<%= team.email %>" target="_blank">
                                         <img src="/tech/images/peop_img/email.svg" alt="" class="w-6 h-6">
                                     </a>
-                                    <a class="flex items-center no-underline hover:underline pl-1" href="#">
+                                    <a class="flex items-center no-underline hover:underline pl-1" href="tel:<%= team.contactNo %>" target="_blank">
                                         <img src="/tech/images/peop_img/phone.svg" alt="" class="w-6 h-6">
                                     </a>
                                 </footer>
@@ -124,7 +124,7 @@
 
     <div id="alumni" class="dark:bg-txt-6 dark:bg-opacity-95 " >
         <!-- sidenav -->
-        <div class="grid grid-cols-8">
+        <div class="px-8 py-12 md:p-0 grid grid-cols-8">
 
             <!-- sidenav -->
             <div class='md:py-32 lg:ml-12 invisible md:visible max-h-0 md:max-h-560'>
@@ -161,42 +161,13 @@
                 </div>
 
                     <!-- cards begin -->
-                <div class=" container my-2 px-4 md:px-12 ">
-                    <div class="flex flex-wrap -mx-1 lg:-mx-4">
-                        <% teams.forEach((team, i)=>{ %>
-                            <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-                                <article class="overflow-hidden rounded-lg shadow-lg dark:bg-txt-7">
-                                    <img alt="image" class="block h-auto w-full self-center p-3" src="uploads/team/<%=team.image%>">
-                                    <header class="leading-tight px-2 md:px-4 text-txt-1 text-left">
-                                        <h1 class="text-xl font-bold ">
-                                            <%=team.name%> 
-                                        </h1>
-                                        <p class=" text-base font-semibold">
-                                            <%=team.post%>
-                                        </p>
-                                        <p class=" text-base font-semibold hidden">
-                                            <%=team.year%>
-                                        </p>
-                                    </header>
-
-                                    <footer class="flex items-center justify-end leading-none p-2 md:p-4">
-                                        <a class="flex items-center no-underline hover:underline px-1" href="#">
-                                            <img src="/tech/images/peop_img/linkedin.svg" alt="" class="w-6 h-6">
-                                        </a>
-                                        <a class="flex items-center no-underline hover:underline px-1" href="#">
-                                            <img src="/tech/images/peop_img/email.svg" alt="" class="w-6 h-6">
-                                        </a>
-                                        <a class="flex items-center no-underline hover:underline pl-1" href="#">
-                                            <img src="/tech/images/peop_img/phone.svg" alt="" class="w-6 h-6">
-                                        </a>
-                                    </footer>
-                <div class="mx-auto max-w-3/4  md:max-w-full container my-2 px-4 md:px-12">
+                <div class="container my-2 px-4 md:px-12">
                     <div class="flex flex-wrap -mx-1 lg:-mx-4">
                         <% teams.forEach((team, i)=>{ %>
                             
                                 <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 alumni-card">
-                                    <article class="overflow-hidden rounded-lg shadow-lg">
-                                        <img alt="image" class="block h-72 w-72 self-center p-3" src="uploads/team/<%=team.image%>">
+                                    <article class="overflow-hidden rounded-lg shadow-lg dark:bg-txt-7">
+                                        <img alt="image" class="block h-auto w-full self-center p-3" src="uploads/team/<%=team.image%>">
                                         <header class="leading-tight px-2 md:px-4 text-txt-1 text-left">
                                             <h1 class="text-xl font-bold ">
                                                 <%=team.name%> 
@@ -210,13 +181,13 @@
                                         </header>
     
                                         <footer class="flex items-center justify-end leading-none p-2 md:p-4">
-                                            <a class="flex items-center no-underline hover:underline px-1" href="#">
+                                            <a class="flex items-center no-underline hover:underline px-1" href="<%= team.linkedin %>" target="_blank">
                                                 <img src="/tech/images/peop_img/linkedin.svg" alt="" class="w-6 h-6">
                                             </a>
-                                            <a class="flex items-center no-underline hover:underline px-1" href="#">
+                                            <a class="flex items-center no-underline hover:underline px-1" href="mailto:<%= team.email %>" target="_blank">
                                                 <img src="/tech/images/peop_img/email.svg" alt="" class="w-6 h-6">
                                             </a>
-                                            <a class="flex items-center no-underline hover:underline pl-1" href="#">
+                                            <a class="flex items-center no-underline hover:underline pl-1" href="tel:<%= team.contactNo %>" target="_blank">
                                                 <img src="/tech/images/peop_img/phone.svg" alt="" class="w-6 h-6">
                                             </a>
                                         </footer>
