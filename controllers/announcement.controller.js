@@ -35,7 +35,7 @@ exports.postAnnouncement = async (req, res) => {
     await newAnnouncement.save();
     // console.log(newAnnouncement)
     req.flash("success", "Successfully added new announcement!");
-    return res.redirect("/tech/admin/announcement");
+    return res.redirect("/sa/techboard/admin/announcement");
   } catch (error) {
     console.log(error.message);
   }
@@ -66,7 +66,7 @@ exports.editAnnouncement = async (req, res) => {
     await Announcement.findByIdAndUpdate(req.params.id, data);
 
     req.flash("success", "Successfully updated announcement!");
-    return res.redirect("/tech/admin/announcement");
+    return res.redirect("/sa/techboard/admin/announcement");
   } catch (error) {
     console.log(error.message);
   } 
@@ -81,10 +81,10 @@ exports.deleteAnnouncement = async (req, res) => {
     fs.unlinkSync(`uploads/announcement/${announcement.pic}`);
 
     req.flash("success", "Successfully deleted announcement!");
-    return res.redirect("/tech/admin/announcement");
+    return res.redirect("/sa/techboard/admin/announcement");
   } catch (err) {
     // handle the error
     console.log(err.message);
-    return res.redirect("/tech/admin/announcement");
+    return res.redirect("/sa/techboard/admin/announcement");
   }
 };

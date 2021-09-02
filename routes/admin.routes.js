@@ -18,12 +18,12 @@ router.post("/signup", authController.postSignup);
 router.post(
   "/login",
   passport.authenticate("local", {
-    failureRedirect: "/tech/admin/login",
+    failureRedirect: "/sa/techboard/admin/login",
     failureFlash: true,
   }),
   (req, res) => {
     req.flash("success", "Welcome to Technical Board Portal!");
-    return res.redirect("/tech/admin");
+    return res.redirect("/sa/techboard/admin");
   }
 );
 

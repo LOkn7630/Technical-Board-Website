@@ -44,7 +44,7 @@ exports.postMember = async (req, res) => {
             await newYear.save();
         }
         req.flash("success", "Successfully added new Member!");
-        return res.redirect("/tech/admin/team");
+        return res.redirect("/sa/techboard/admin/team");
     }
     catch(err){
         console.log(err);
@@ -102,7 +102,7 @@ exports.editMember = async (req, res) => {
             await newYear.save();
         }
         req.flash("success", "Successfully Updated Member Data!");
-        return res.redirect("/tech/admin/team");
+        return res.redirect("/sa/techboard/admin/team");
     }
     catch(err){
         console.log(err);
@@ -119,7 +119,7 @@ exports.deleteMember = async (req, res) => {
         await Team.findByIdAndDelete(id);
         fs.unlinkSync(`uploads/team/${MemberData.image}`);
         req.flash("success", "Successfully Deleted Member!");
-        return res.redirect("/tech/admin/team");
+        return res.redirect("/sa/techboard/admin/team");
     }
     catch(err){
         console.log(err);

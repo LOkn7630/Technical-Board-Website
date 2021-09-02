@@ -1,7 +1,7 @@
 <%- include("../partials/header.ejs") %>
     <h1 class="text-3xl text-black pb-6">Notices</h1>
     <div class="mt-6">
-        <a class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" href="/tech/admin/notice/add">Add
+        <a class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" href="/sa/techboard/admin/notice/add">Add
             Notices</a>
 
     </div>
@@ -40,7 +40,7 @@
 
                                 <td class="text-left py-3 px-4">
                                     <% if(notice.path.indexOf("https://")==-1) { %>
-                                        <a class="hover:text-blue-500" href="/tech/admin/notice/pdf/<%=notice.id%>"
+                                        <a class="hover:text-blue-500" href="/sa/techboard/admin/notice/pdf/<%=notice.id%>"
                                             target="_blank">View</a>
                                         <% } else { %>
                                             <a class="hover:text-blue-500" href="<%= notice.path %>"
@@ -49,9 +49,9 @@
                                 </td>
 
                                 <td class="text-left py-3 px-4"><a class="hover:text-blue-500"
-                                        href="/tech/admin/notice/<%=notice.id%>">Edit</a></td>
+                                        href="/sa/techboard/admin/notice/<%=notice.id%>">Edit</a></td>
                                 <td class="text-left py-3 px-4">
-                                    <form class="mx-2" action="/tech/admin/notice/<%=notice.id%>?_method=DELETE"
+                                    <form class="mx-2" action="/sa/techboard/admin/notice/<%=notice.id%>?_method=DELETE"
                                         method="POST"><button class="hover:text-red-500">Delete</button></form>
                                 </td>
 

@@ -1,7 +1,7 @@
 <%- include("../partials/header.ejs") %> 
 <h1 class="text-3xl text-black pb-6">Announcements</h1>
 <div class="mt-6">
-    <a class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" href="/tech/admin/announcement/add">Add Announcements</a>
+    <a class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" href="/sa/techboard/admin/announcement/add">Add Announcements</a>
 </div>
 <div class="w-auto mt-6 overflow-auto">
     <div class="bg-white">
@@ -37,12 +37,12 @@
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0 w-10 h-10">
                                         <img class="w-full h-full "
-                                            src="/tech/uploads/announcement/<%= announcement.pic %>" alt="img"/>
+                                            src="/sa/techboard/uploads/announcement/<%= announcement.pic %>" alt="img"/>
                                     </div>
                                 </div>
                             </td>
-                            <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="/tech/admin/announcement/<%=announcement.id%>">Edit</a></td>
-                            <td class="text-left py-3 px-4"><form class="mx-2" action="/tech/admin/announcement/<%=announcement.id%>?_method=DELETE" method="POST"><button class="hover:text-red-500">Delete</button></form></td>
+                            <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="/sa/techboard/admin/announcement/<%=announcement.id%>">Edit</a></td>
+                            <td class="text-left py-3 px-4"><form class="mx-2" action="/sa/techboard/admin/announcement/<%=announcement.id%>?_method=DELETE" method="POST"><button class="hover:text-red-500">Delete</button></form></td>
                            
                         </tr>
                     <% })%>

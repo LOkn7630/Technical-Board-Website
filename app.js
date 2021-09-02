@@ -35,8 +35,8 @@ const announcementRoutes = require("./routes/announcement.routes");
 const noticeRoutes = require("./routes/notice.routes");
 const teamRoutes = require("./routes/team.routes");
 
-app.use("/tech/", express.static(__dirname + "/public"));
-app.use("/tech/uploads", express.static(__dirname + "/uploads"));
+app.use("/sa/techboard/", express.static(__dirname + "/public"));
+app.use("/sa/techboard/uploads", express.static(__dirname + "/uploads"));
 
 
 app.use(
@@ -87,11 +87,12 @@ app.use((req, res, next) => {
 });
 
 app.set("view engine", "ejs");
-app.use("/tech", homeRoutes);
-app.use("/tech/admin", adminRoutes);
-app.use("/tech/admin/announcement", announcementRoutes);
-app.use("/tech/admin/notice", noticeRoutes)
-app.use("/tech/admin/team", teamRoutes);
+
+app.use("/sa/techboard", homeRoutes);
+app.use("/sa/techboard/admin", adminRoutes);
+app.use("/sa/techboard/admin/announcement", announcementRoutes);
+app.use("/sa/techboard/admin/notice", noticeRoutes)
+app.use("/sa/techboard/admin/team", teamRoutes);
 
 app.use(helmet({ contentSecurityPolicy: false }));
 

@@ -50,7 +50,7 @@ exports.postNotice = async (req, res) => {
     await newNotice.save();
     // console.log(newNotice)
     req.flash("success", "Successfully added new notice!");
-    return res.redirect("/tech/admin/notice");
+    return res.redirect("/sa/techboard/admin/notice");
   } catch (error) {
     console.log(error.message);
   }
@@ -87,7 +87,7 @@ exports.editNotice = async (req, res) => {
     await Notice.findByIdAndUpdate(req.params.id, data);
 
     req.flash("success", "Successfully updated notice!");
-    return res.redirect("/tech/admin/notice");
+    return res.redirect("/sa/techboard/admin/notice");
   } catch (error) {
     console.log(error.message);
   }
@@ -101,10 +101,10 @@ exports.deleteNotice = async (req, res) => {
     fs.unlinkSync(`uploads/notice/${notice.path}`);
 
     req.flash("success", "Successfully deleted notice!");
-    return res.redirect("/tech/admin/notice");
+    return res.redirect("/sa/techboard/admin/notice");
   } catch (err) {
     // handle the error
     console.log(err.message);
-    return res.redirect("/tech/admin/notice");
+    return res.redirect("/sa/techboard/admin/notice");
   }
 };
