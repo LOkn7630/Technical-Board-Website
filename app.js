@@ -15,7 +15,7 @@ require("dotenv").config();
 // const  {MONGO_URL} = process.env;
 // const url = "mongodb://localhost:27017/TECH_db";
 // console.log(MONGO_URL);
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8080;
 
 require("./config/passport")(passport);
 
