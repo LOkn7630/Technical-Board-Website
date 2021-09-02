@@ -2,9 +2,9 @@
     <h1 class="text-3xl text-black pb-6">Members of Technical Board 
     </h1>
     <div class="mt-6">
-        <a class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" href="/sa/techboard/admin/team/add">Add
+        <a class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" href="/tech/admin/team/add">Add
             Members</a>
-        <form style="float: right;" action="/sa/techboard/admin/team/find/" method="POST" enctype="multipart/form-data">
+        <form style="float: right;" action="/tech/admin/team/find/" method="POST" enctype="multipart/form-data">
             <select class="w-50 h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" name = "dropdown">
                 <option value = "" selected>-Tenure-</option>
                 <% tyear.forEach((years) => { %>
@@ -60,7 +60,7 @@
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0 w-10 h-10">
                                         <img class="w-full h-full "
-                                            src="/sa/techboard/uploads/team/<%=member.image %>" alt="" />
+                                            src="/tech/uploads/team/<%=member.image %>" alt="" />
                                     </div>
                                     <div class="ml-3">
                                         <p class="text-gray-900 whitespace-no-wrap">
@@ -96,11 +96,11 @@
 
                             <td class="text-left py-3 px-4">
                                 <a class="hover:text-blue-500"
-                                    href="/sa/techboard/admin/team/<%=member.id%>">Edit</a>
+                                    href="/tech/admin/team/<%=member.id%>">Edit</a>
                             </td>
 
                             <td class="text-left py-3 px-4">
-                                <form class="mx-2" action="/sa/techboard/admin/team/<%=member.id%>?_method=DELETE"
+                                <form class="mx-2" action="/tech/admin/team/<%=member.id%>?_method=DELETE"
                                     method="POST"><button class="hover:text-red-500">Delete</button></form>
                             </td>
                         </tr>
