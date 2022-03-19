@@ -12,15 +12,13 @@ const flash = require("connect-flash");
 const app= express();
 const helmet = require("helmet");
 require("dotenv").config();
-// const  {MONGO_URL} = process.env;
-// const url = "mongodb://localhost:27017/TECH_db";
-// console.log(MONGO_URL);
+const  MONGO_URL = process.env.MONGO;
 const PORT = process.env.PORT || 8000;
 
 require("./config/passport")(passport);
 
 mongoose
-  .connect('mongodb://localhost:27017/TECH_db', {
+  .connect(MONGO_URL, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
